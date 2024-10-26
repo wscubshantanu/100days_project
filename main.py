@@ -1,16 +1,18 @@
-# This is a sample Python script.
+from question_model import Question
+from data import question_data
+from quiz_game import QuizGame
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+question_bank = []
+for question in question_data:
+    question_bank = Question["text"]
+    question_bank =  Question["answer"]
+    new_question = Question(question["text"], question["answer"])
+    question_bank.append(new_question)
 
+quiz = Quizbrain(question_bank)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+while quiz.still_has_questions():
+    quiz.next_question()
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print("you've completed the quiz")
+print("your final score was:{quiz.score}/{quiz.question_number}")
